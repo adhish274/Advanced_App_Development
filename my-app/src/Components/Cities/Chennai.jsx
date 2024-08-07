@@ -12,6 +12,7 @@ import PeopleIcon from '@mui/icons-material/People';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import Header from '../Header';
 import { useNavigate } from 'react-router-dom';
+import Foot from '../Footer/Foot';
 
 const Img = styled('img')({
   margin: 'auto',
@@ -70,54 +71,67 @@ const data = [
 
 const Chennai = () => {
   const navigate = useNavigate();
+  
   const renderPapers = () => {
     return data.map((item, index) => (
       <Grid item xs={12} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
         <Paper
           sx={{
             p: 2,
-            mt: 2, // Add margin top for spacing between papers
-            mb: 2, // Add margin bottom for spacing between papers
-            maxWidth: 600, // Adjusted to match the larger image size
+            mt: 2,
+            mb: 2,
+            maxWidth: 600,
             flexGrow: 1,
             backgroundColor: (theme) =>
               theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+            fontFamily: '"Quicksand", "Helvetica Neue", Arial, sans-serif', // Apply the font family
           }}
         >
           <Grid container spacing={2}>
-            <Grid item>
-              <ButtonBase sx={{ width: 300, height: 300 }}>
+            <Grid item xs={4}>
+              <ButtonBase
+                sx={{
+                  width: '100%',
+                  height: '100%',
+                  '&:hover': {
+                    backgroundColor: 'transparent',
+                    '&:focus': {
+                      outline: 'none',
+                    },
+                  },
+                }}
+              >
                 <Img alt={item.title} src={item.imgSrc} />
               </ButtonBase>
             </Grid>
-            <Grid item xs={12} sm container>
-              <Grid item xs container direction="column" spacing={2}>
-                <Grid item>
-                  <Typography gutterBottom variant="subtitle1" component="div">
-                    {item.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary" gutterBottom>
-                    <StarIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.rating}
-                  </Typography>
-                  <Typography variant="body2" gutterBottom>
-                    <LocationOnIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.location}
-                  </Typography>
-                  <Typography variant="body2" gutterBottom>
-                    <AccountBalanceIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.about}
-                  </Typography>
-                  <Typography variant="body2" gutterBottom>
-                    <PeopleIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.accommodation}
-                  </Typography>
-                  <Typography variant="body2" gutterBottom>
-                    <CurrencyRupeeIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.price}
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Button variant="contained" color="primary" onClick={() => { navigate("/payments") }}>
-                    Book
-                  </Button>
-                </Grid>
-              </Grid>
+            <Grid item xs={8} sx={{ paddingLeft: 2 }}>
+              <Typography 
+                gutterBottom 
+                variant="subtitle1" 
+                component="div" 
+                align="left" 
+                sx={{ fontWeight: 700 }} // Increased font weight for the title
+              >
+                {item.title}
+              </Typography>
+              <Typography variant="body2" color="text.secondary" align="left" gutterBottom>
+                <StarIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.rating}
+              </Typography>
+              <Typography variant="body2" align="left" gutterBottom>
+                <LocationOnIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.location}
+              </Typography>
+              <Typography variant="body2" align="left" gutterBottom>
+                <AccountBalanceIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.about}
+              </Typography>
+              <Typography variant="body2" align="left" gutterBottom>
+                <PeopleIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.accommodation}
+              </Typography>
+              <Typography variant="body2" align="left" gutterBottom>
+                <CurrencyRupeeIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.price}
+              </Typography>
+              <Button variant="contained" color="primary" sx={{ mt: 2 }} onClick={() => { navigate("/payments") }}>
+                Book
+              </Button>
             </Grid>
           </Grid>
         </Paper>
@@ -127,10 +141,11 @@ const Chennai = () => {
 
   return (
     <div>
-      <Header/>
+      <Header />
       <Grid container direction="column" alignItems="center" justifyContent="center" sx={{ minHeight: '100vh' }}>
         {renderPapers()}
       </Grid>
+      <Foot/>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-package com.example.demo.Model;
+package com.example.demo.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Column;
@@ -17,14 +17,14 @@ import lombok.Setter;
 public class PaymentsModel{
     
     @Id
-    @Column(name = "Payment_id")
-    private int id;
-    private int Booking_id;
-    private int Price;
-    private String PaymentMethod;
-    private String PaymentStatus;
-    private String TransactionId;
-    private int PaymentDate;
+    
+    private int paymentId;
+    private int booking_id;
+    private int price;
+    private String paymentMethod;
+    private String paymentStatus;
+    private String transactionId;
+    private int paymentDate;
 
 
 }

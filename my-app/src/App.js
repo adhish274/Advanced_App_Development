@@ -24,6 +24,10 @@ import AdminDash from './Components/AdminDash';
 import ManageHall from './Components/ManageHalls';
 import Dashboard from './Components/Dashboard';
 import Header from './Components/Header';
+import AboutUs from './Components/About/AboutUs';
+import BookingForm from './Components/BookingForm';
+import Foot from './Components/Footer/Foot';
+import Simplefoot from './Components/simplefoot/Simplefoot';
 
 
 const App = () => {
@@ -54,6 +58,10 @@ const App = () => {
        <Route path='/managehall' element={<ManageHall/>}></Route>
        <Route path='/dashboard' element={<Dashboard/>}></Route>
        <Route path='/header' element={<Header/>}></Route>
+       <Route path='/aboutus' element={<AboutUs/>}></Route>
+       <Route path='/bookingform' element={<BookingForm/>}></Route>
+       <Route path='/footer' element={<Foot/>}></Route>
+       <Route path='/simplefooter' element={<Simplefoot/>}></Route>
 
        
      </Routes>

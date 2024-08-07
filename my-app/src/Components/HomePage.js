@@ -45,6 +45,7 @@ import Footer from './Footer';
 import { Icon } from '@mui/material';
 import SizeContext from 'antd/es/config-provider/SizeContext';
 import Contact from './Contact';
+import Foot from './Footer/Foot';
 
 function HomePage(){
     
@@ -97,42 +98,9 @@ function HomePage(){
           console.log(selectedValue);
           navigate("/mumbai")
       }
-  }
+  }   
 
   
-    // const itemData = [
-    //   {
-    //     img: 'https://images.unsplash.com/photo-1542665952-14513db15293?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    //     title: 'Bed',
-    //   },
-    //   {
-    //     img: 'https://images.unsplash.com/photo-1579625498716-f6b4502d8091?q=80&w=2985&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    //     title: 'Kitchen',
-    //   },
-    //   {
-    //     img: 'https://images.unsplash.com/photo-1549964336-96c968e00d5b?q=80&w=2974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    //     title: 'Sink',
-    //   },
-    //   {
-    //     img: 'https://plus.unsplash.com/premium_photo-1661907977530-eb64ddbfb88a?q=80&w=3042&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    //     title: 'Books',
-    //   },
-    //   {
-    //     img: 'https://images.unsplash.com/photo-1526568929-7cdd510e77fd?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D',
-    //     title: 'Chairs',
-    //   },
-    //   {
-    //     img: 'https://images.unsplash.com/photo-1510076857177-7470076d4098?q=80&w=2972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    //     title: 'Candle',
-    //   }
-      
-      
-    // ];
-
-    
-      
-    
-      
     
     return(
         <div>
@@ -208,27 +176,6 @@ function HomePage(){
                 </div>
             </div>
             
-
-
-            {/* Description-1 */}
-            {/* <div className='description-1'>
-              <div>
-                <h1>Online Booking for your Hall or Venue</h1>
-              </div>
-              <div>
-                <p>Best online reservation system for Marriage halls, Meeting halls, clubhouses, community centres and all other bookable function rooms.						</p>
-              </div>
-              <div >
-                <ul className='des1-list'>
-                  <li>Flexible System for any Venue</li>
-                  <li>Flexible System for any Venue</li>
-                  <li>Flexible System for any Venue</li>
-                </ul>
-        
-              </div>
-            </div> */}
-
-
             {/* Description-2 */}
             <div id="description" className='description'>
               
@@ -246,18 +193,7 @@ function HomePage(){
               </div>
               <div className='description-image'>
                 <img src={desimage}></img>
-                  {/* <ImageList sx={{ width: 500, height: 500 }} variant="woven" cols={3} gap={8}>
-                    {itemData.map((item) => (
-                      <ImageListItem key={item.img}>
-                        <img
-                          srcSet={`${item.img}?w=161&fit=crop&auto=format&dpr=2 2x`}
-                          src={`${item.img}?w=161&fit=crop&auto=format`}
-                          alt={item.title}
-                          loading="lazy"
-                        />
-                      </ImageListItem>
-                    ))}
-                </ImageList> */}
+    
               </div>
             </div>
 
@@ -358,72 +294,19 @@ function HomePage(){
                       </h2><br></br>
 
                     </div>
-                    <div>
+                    <div className='testimonal'>
                       <p>HallSpace exceeded my expectations. The booking process was straightforward, and customer service was exceptional. They helped me find a hall that suited my budget and needs perfectly. The event went smoothly thanks to their reliable service. Will definitely use them again!</p>
 
                     </div>
                     
                   </div>
                 </div>
-                {/* <div className='wrapper-customer-text'>
-                  <div className='customer-text'>
-                    <div className='customer-title'>
-                      <img className='customer-image' src={person1}></img>
-                      <h2>
-                        Oliver
-                      </h2><br></br>
-
-                    </div>
-                    <div>
-                      <p>Booking with HallSpace was a breeze! The website is user-friendly, and the selection of venues is impressive. I found the perfect hall for my event within minutes. The detailed descriptions and photos made it easy to decide. Highly recommend for anyone looking to book a venue quickly and efficiently.</p>
-
-                    </div>
-                    
-                  </div>
-                </div>
-                <div className='wrapper-customer-text'>
-                  <div className='customer-text'>
-                    <div className='customer-title'>
-                      <img className='customer-image' src={person2}></img>
-                      <h2>
-                        Emily
-                      </h2><br></br>
-
-                    </div>
-                    <div>
-                      <p>HallSpace exceeded my expectations. The booking process was straightforward, and customer service was exceptional. They helped me find a hall that suited my budget and needs perfectly. The event went smoothly thanks to their reliable service. Will definitely use them again!</p>
-
-                    </div>
-                    
-                  </div>
-                </div> */}
-              </div>
-              
-              
-              
+                
+              </div>              
             </div>
 
-            {/* Contact Us */}
-            {/* <div id="contact-us">
-              <Contact/>
-            </div> */}
-
             {/* Footer */}
-            <footer>
-              <div class="footer-content">
-                  <h3>HallSpace</h3>
-                  <p>Your one-stop solution for booking halls for events, meetings, and more.</p>
-                  <ul class="socials">
-                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                      <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                      <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                  </ul>
-              </div>
-              <div class="footer-bottom">
-                  <p>&copy; 2024 HallSpace. Designed by Team8</p>
-              </div>
-            </footer>
-            
+            <Foot/>
             
             
         </div>

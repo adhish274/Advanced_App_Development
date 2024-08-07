@@ -11,6 +11,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Button, CardActions } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import hallspace from 'C:/Users/flyto/Advanced_App_Development/Advanced_App_Development/my-app/src/Images/Icons/HallSpace-logo.png';
+import './HomePage.css';
 
 
 function Copyright() {

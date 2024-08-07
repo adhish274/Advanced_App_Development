@@ -6,10 +6,13 @@ import EmailIcon from '@mui/icons-material/Email';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+
 import Header from './Header';
 import './HomePage.css';
 
 import Footer from './Footer';
+import Foot from './Footer/Foot';
 
 const cardStyle = {
   boxShadow: 3,
@@ -87,20 +90,8 @@ const Contact = () => {
         </Grid>
       </Grid>
     </Container>
-    <footer className='outer-footer'>
-              <div class="footer-content">
-                  <h3>HallSpace</h3>
-                  <p>Your one-stop solution for booking halls for events, meetings, and more.</p>
-                  <ul class="socials">
-                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                      <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                      <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                  </ul>
-              </div>
-              <div class="footer-bottom">
-                  <p>&copy; 2024 HallSpace. Designed by Team8</p>
-              </div>
-            </footer>
+   
+    <Foot/>
     </div>
   );
 };

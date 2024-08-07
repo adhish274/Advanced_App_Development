@@ -12,6 +12,7 @@ import PeopleIcon from '@mui/icons-material/People';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import Header from '../Header';
 import { useNavigate } from 'react-router-dom';
+import Foot from '../Footer/Foot';
 
 const Img = styled('img')({
   margin: 'auto',
@@ -28,7 +29,7 @@ const data = [
     accommodation: '50-250',
     rating: 4.3,
     price: '8000-25000',
-    about: ' It is an exemplary wedding destination that has elegant and luxurious banqueting and lawn facilities.',
+    about: 'It is an exemplary wedding destination that has elegant and luxurious banqueting and lawn facilities.',
   },
   {
     imgSrc: 'https://cdn0.weddingwire.in/vendor/4216/3_2/960/png/screen-shot-2018-03-14-at-10-40-02-am_15_84216.webp',
@@ -55,7 +56,7 @@ const data = [
     accommodation: '50-400',
     rating: 4.7,
     price: '12000-50000',
-    about: 'Club Prestige Park Drive is a wedding banquet hall that epitomises luxury and sophistication, elevating your special moments to new heights. ',
+    about: 'Club Prestige Park Drive is a wedding banquet hall that epitomises luxury and sophistication, elevating your special moments to new heights.',
   },
   {
     imgSrc: 'https://cdn0.weddingwire.in/vendor/7212/3_2/960/jpg/-mg-1748_15_47212-168577308896906.webp',
@@ -64,60 +65,73 @@ const data = [
     accommodation: '50-500',
     rating: 4.9,
     price: '11000-60000',
-    about: 'lub Woodrose Club is a popular wedding venue in Bangalore where you can host many of your wedding functions. Whether hosting an intimate haldi function, a fun sangeet ceremony, or hosting a grand wedding ceremony and reception.',
+    about: 'Club Woodrose Club is a popular wedding venue in Bangalore where you can host many of your wedding functions. Whether hosting an intimate haldi function, a fun sangeet ceremony, or hosting a grand wedding ceremony and reception.',
   },
 ];
 
 const Banglore = () => {
   const navigate = useNavigate();
+  
   const renderPapers = () => {
     return data.map((item, index) => (
       <Grid item xs={12} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
         <Paper
           sx={{
             p: 2,
-            mt: 2, // Add margin top for spacing between papers
-            mb: 2, // Add margin bottom for spacing between papers
-            maxWidth: 600, // Adjusted to match the larger image size
+            mt: 2,
+            mb: 2,
+            maxWidth: 600,
             flexGrow: 1,
             backgroundColor: (theme) =>
               theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+            fontFamily: '"Quicksand", "Helvetica Neue", Arial, sans-serif', // Apply the font family
           }}
         >
           <Grid container spacing={2}>
-            <Grid item>
-              <ButtonBase sx={{ width: 300, height: 300 }}>
+            <Grid item xs={4}>
+              <ButtonBase
+                sx={{
+                  width: '100%',
+                  height: '100%',
+                  '&:hover': {
+                    backgroundColor: 'transparent',
+                    '&:focus': {
+                      outline: 'none',
+                    },
+                  },
+                }}
+              >
                 <Img alt={item.title} src={item.imgSrc} />
               </ButtonBase>
             </Grid>
-            <Grid item xs={12} sm container>
-              <Grid item xs container direction="column" spacing={2}>
-                <Grid item>
-                  <Typography gutterBottom variant="subtitle1" component="div">
-                    {item.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary" gutterBottom>
-                    <StarIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.rating}
-                  </Typography>
-                  <Typography variant="body2" gutterBottom>
-                    <LocationOnIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.location}
-                  </Typography>
-                  <Typography variant="body2" gutterBottom>
-                    <AccountBalanceIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.about}
-                  </Typography>
-                  <Typography variant="body2" gutterBottom>
-                    <PeopleIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.accommodation}
-                  </Typography>
-                  <Typography variant="body2" gutterBottom>
-                    <CurrencyRupeeIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.price}
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Button variant="contained" color="primary" onClick={() => { navigate("/payments") }}>
-                    Book
-                  </Button>
-                </Grid>
-              </Grid>
+            <Grid item xs={8} sx={{ paddingLeft: 2 }}>
+              <Typography 
+                gutterBottom 
+                variant="subtitle1" 
+                component="div" 
+                align="left" 
+                sx={{ fontWeight: 700 }} // Increased font weight for the title
+              >
+                {item.title}
+              </Typography>
+              <Typography variant="body2" color="text.secondary" align="left" gutterBottom>
+                <StarIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.rating}
+              </Typography>
+              <Typography variant="body2" align="left" gutterBottom>
+                <LocationOnIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.location}
+              </Typography>
+              <Typography variant="body2" align="left" gutterBottom>
+                <AccountBalanceIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.about}
+              </Typography>
+              <Typography variant="body2" align="left" gutterBottom>
+                <PeopleIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.accommodation}
+              </Typography>
+              <Typography variant="body2" align="left" gutterBottom>
+                <CurrencyRupeeIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.price}
+              </Typography>
+              <Button variant="contained" color="primary" sx={{ mt: 2 }} onClick={() => { navigate("/payments") }}>
+                Book
+              </Button>
             </Grid>
           </Grid>
         </Paper>
@@ -127,10 +141,11 @@ const Banglore = () => {
 
   return (
     <div>
-      <Header/>
+      <Header />
       <Grid container direction="column" alignItems="center" justifyContent="center" sx={{ minHeight: '100vh' }}>
         {renderPapers()}
       </Grid>
+      <Foot/>
     </div>
   );
 };

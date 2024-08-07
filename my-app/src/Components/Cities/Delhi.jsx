@@ -12,6 +12,7 @@ import PeopleIcon from '@mui/icons-material/People';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import Header from '../Header';
 import { useNavigate } from 'react-router-dom';
+import Foot from '../Footer/Foot';
 
 const Img = styled('img')({
   margin: 'auto',
@@ -28,7 +29,7 @@ const data = [
     accommodation: '100-1000',
     rating: 4.3,
     price: '30000-80000',
-    about: 'Noormahal Palace, nestled in the heart of serene landscapes of Karnal, it understands the importance of this day for couples .',
+    about: 'Noormahal Palace, nestled in the heart of serene landscapes of Karnal, it understands the importance of this day for couples.',
   },
   {
     imgSrc: 'https://cdn0.weddingwire.in/vendor/3713/3_2/960/jpg/17499583-1225208910928089-2482976147089191634-n_15_33713.webp',
@@ -37,7 +38,7 @@ const data = [
     accommodation: '250-1000',
     rating: 4.7,
     price: '35000-80000',
-    about: 'Discover elegance and sophistication at The Upper HSE by Tivoli The Upper HSE by Tivoli is a beacon among wedding venues located in South Delhi.',
+    about: 'Discover elegance and sophistication at The Upper HSE by Tivoli. The Upper HSE by Tivoli is a beacon among wedding venues located in South Delhi.',
   },
   {
     imgSrc: 'https://cdn0.weddingwire.in/vendor/3601/3_2/960/jpg/27973067-1620286584674343-8779948725268117552-n_15_33601.webp',
@@ -46,7 +47,7 @@ const data = [
     accommodation: '250-5000',
     rating: 4.6,
     price: '40000-150000',
-    about: 'Multiple stunning wedding venues, exquisite decor, and a splendid ambience, this property provides.',
+    about: 'Multiple stunning wedding venues, exquisite decor, and a splendid ambience this property provides.',
   },
   {
     imgSrc: 'https://cdn0.weddingwire.in/vendor/4209/3_2/960/jpg/-96a8821_15_14209-170868002399474.webp',
@@ -70,54 +71,67 @@ const data = [
 
 const Delhi = () => {
   const navigate = useNavigate();
+  
   const renderPapers = () => {
     return data.map((item, index) => (
       <Grid item xs={12} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
         <Paper
           sx={{
             p: 2,
-            mt: 2, // Add margin top for spacing between papers
-            mb: 2, // Add margin bottom for spacing between papers
-            maxWidth: 600, // Adjusted to match the larger image size
+            mt: 2,
+            mb: 2,
+            maxWidth: 600,
             flexGrow: 1,
             backgroundColor: (theme) =>
               theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+            fontFamily: '"Quicksand", "Helvetica Neue", Arial, sans-serif', // Apply the font family
           }}
         >
           <Grid container spacing={2}>
-            <Grid item>
-              <ButtonBase sx={{ width: 300, height: 300 }}>
+            <Grid item xs={4}>
+              <ButtonBase
+                sx={{
+                  width: '100%',
+                  height: '100%',
+                  '&:hover': {
+                    backgroundColor: 'transparent',
+                    '&:focus': {
+                      outline: 'none',
+                    },
+                  },
+                }}
+              >
                 <Img alt={item.title} src={item.imgSrc} />
               </ButtonBase>
             </Grid>
-            <Grid item xs={12} sm container>
-              <Grid item xs container direction="column" spacing={2}>
-                <Grid item>
-                  <Typography gutterBottom variant="subtitle1" component="div">
-                    {item.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary" gutterBottom>
-                    <StarIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.rating}
-                  </Typography>
-                  <Typography variant="body2" gutterBottom>
-                    <LocationOnIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.location}
-                  </Typography>
-                  <Typography variant="body2" gutterBottom>
-                    <AccountBalanceIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.about}
-                  </Typography>
-                  <Typography variant="body2" gutterBottom>
-                    <PeopleIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.accommodation}
-                  </Typography>
-                  <Typography variant="body2" gutterBottom>
-                    <CurrencyRupeeIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.price}
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Button variant="contained" color="primary" onClick={() => { navigate("/payments") }}>
-                    Book
-                  </Button>
-                </Grid>
-              </Grid>
+            <Grid item xs={8} sx={{ paddingLeft: 2 }}>
+              <Typography 
+                gutterBottom 
+                variant="subtitle1" 
+                component="div" 
+                align="left" 
+                sx={{ fontWeight: 700 }} // Increased font weight for the title
+              >
+                {item.title}
+              </Typography>
+              <Typography variant="body2" color="text.secondary" align="left" gutterBottom>
+                <StarIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.rating}
+              </Typography>
+              <Typography variant="body2" align="left" gutterBottom>
+                <LocationOnIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.location}
+              </Typography>
+              <Typography variant="body2" align="left" gutterBottom>
+                <AccountBalanceIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.about}
+              </Typography>
+              <Typography variant="body2" align="left" gutterBottom>
+                <PeopleIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.accommodation}
+              </Typography>
+              <Typography variant="body2" align="left" gutterBottom>
+                <CurrencyRupeeIcon sx={{ verticalAlign: 'middle', mr: 0.5 }} /> {item.price}
+              </Typography>
+              <Button variant="contained" color="primary" sx={{ mt: 2 }} onClick={() => { navigate("/payments") }}>
+                Book
+              </Button>
             </Grid>
           </Grid>
         </Paper>
@@ -127,11 +141,11 @@ const Delhi = () => {
 
   return (
     <div>
-      <Header/>
+      <Header />
       <Grid container direction="column" alignItems="center" justifyContent="center" sx={{ minHeight: '100vh' }}>
         {renderPapers()}
       </Grid>
-
+      <Foot/>
     </div>
   );
 };
